@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* in your global CSS */
+html {
+  color-scheme: light dark;
+}
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes errorFlicker {
+  0% {
+    color: rgb(239 68 68);
+    background-color: rgba(239, 68, 68, 0.2);
+    box-shadow: 0 0 0 1px rgb(239 68 68);
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-2px);
+  }
+
+  50% {
+    transform: translateX(2px);
+  }
+
+  75% {
+    transform: translateX(-1px);
+  }
+
+  100% {
+    color: currentColor;
+    background-color: transparent;
+    box-shadow: none;
+    transform: translateX(0);
+  }
+}
+
+.error-flicker {
+  animation: errorFlicker 150ms ease-out;
+  border-radius: 3px;
+  will-change: transform;
+}

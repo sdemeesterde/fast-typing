@@ -1,0 +1,8 @@
+target/
+miniredis/target/
+*.pem
+.env
+api/data/*.db
+api/data/*.db-shm
+api/data/*.db-wal
+# Keep .sqlx -> needed for compile-time query checking

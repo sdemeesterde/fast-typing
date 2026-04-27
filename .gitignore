@@ -1,0 +1,61 @@
+# -------------------------------
+# Rust / Cargo
+# -------------------------------
+
+# Build output
+/**/target/
+
+# Cargo metadata files
+**/*.rs.bk
+
+# Cargo package cache (optional, usually local)
+/**/Cargo.lock   # Only if you want each crate to manage its own lock, otherwise ignore root lock
+
+# Append only files
+/**/*.aof
+
+# Env file
+/**/*.env
+
+# sqlx
+/**/*.sqlx/
+
+# certifcates
+/**/*.pem
+
+# any database
+/**/*.db
+
+# -------------------------------
+# Rust Language / Misc
+# -------------------------------
+*.rmeta
+*.rlib
+*.so
+*.dylib
+*.dll
+*.exe
+*.pdb
+*.idb
+*.profraw
+*.swp
+*.swo
+
+# Vim
+*.swp
+*.swo
+*.un~
+
+# -------------------------------
+# Logs / temp files
+# -------------------------------
+*.log
+*.tmp
+*.temp
+*.bak
+
+# -------------------------------
+# OS generated files
+# -------------------------------
+# Linux / tmp
+*~

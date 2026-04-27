@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Instant theme (NO React, no hooks) -->
+  <script>
+    (function () {
+      const stored = localStorage.getItem("theme");
+
+      const isDark =
+        stored === "dark" ||
+        (!stored &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+      if (isDark) {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+
+  <!-- Prevent glitch change of color on loading -->
+  <style>
+    html.dark {
+      background-color: #1c1917;
+    }
+  </style>
+
+  <link rel="icon" type="image/svg+xml" href="keyboard-solid.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing game</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
