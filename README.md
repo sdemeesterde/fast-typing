@@ -158,7 +158,7 @@ But that’s fine given the expected workload.
 
 ### Server
 
-If those curious on the server setup:
+If you're curious about the server setup:
 👉 `deploy/README.md`
 
 ---
