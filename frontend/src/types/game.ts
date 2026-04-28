@@ -30,7 +30,7 @@ export interface GameSetting {
   // The limit for the words
   yLimit: number;
   // y Gap between two words displayed
-  yGap: number;
+  minYGap: number;
   fireIconSize: number;
   fireGap: number;
   btmMargin: number;

@@ -31,9 +31,7 @@ export function useGameEngine(
   }, [gameScoreRef]);
 
   const gameSettingRef = useRef(gameSetting);
-  useEffect(() => {
-    gameSettingRef.current = gameSetting;
-  }, [gameSetting]);
+  gameSettingRef.current = gameSetting; // synchronous during render
 
   // In case of a logout, login, sumbitScore must be updated.
   const submitRef = useRef(scoreSubmit);
@@ -131,9 +129,7 @@ export function useGameEngine(
   // ------------------------
   useEffect(() => {
     if (gameState !== "playing") return;
-
-    const setting = gameSettingRef.current;
-    if (!setting.layoutHeight) return;
+    if (!gameSetting.layoutHeight) return;
 
     let animationFrame: number;
     let lastTime = performance.now();
@@ -144,6 +140,7 @@ export function useGameEngine(
       lastTime = currentTime;
 
       const game = gameRef.current;
+      const setting = gameSettingRef.current;
 
       const difficulty =
         setting.speedIncrease **
@@ -159,7 +156,10 @@ export function useGameEngine(
 
       // Spawn logic
       const lastWord = game.words[game.words.length - 1];
-      if ((lastWord.yPcnt / 100) * setting.yLimit > setting.yGap) {
+      if (
+        lastWord.yPcnt > 8 &&
+        (lastWord.yPcnt / 100) * setting.yLimit > setting.minYGap
+      ) {
         game.words.push(getNextRandomWord(game.words.length));
       }
 
@@ -189,7 +189,7 @@ export function useGameEngine(
     animationFrame = requestAnimationFrame(loop);
 
     return () => cancelAnimationFrame(animationFrame);
-  }, [gameState]);
+  }, [gameState, gameSetting]);
 
   return [gameInstance, gameScore, gameHistory];
 }

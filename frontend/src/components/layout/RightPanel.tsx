@@ -35,7 +35,7 @@ export function RightPanel({ gameHistory }: RightPanelProps) {
                      opacity-0 group-hover:opacity-100 transition
                      bg-black text-white rounded px-2 py-1 shadow-lg pointer-events-none"
             >
-              Only the history of the current connexion is displayed.
+              Only the history of the current connection is displayed.
             </div>
           </div>
         </div>
