@@ -47,11 +47,11 @@ pub async fn submit_score(
     // ------------------------------------------------------------------
     // Max speed is ~300 WPM (Word per minute)
     // Being conservative and taking into account speed burst, let's assume:
-    // Maximum human speed: 50 char / second.
+    // Maximum human speed: 45 char / second.
     //
-    // Assuming a put every 300ms, and accounting for failues, one delta score increase
-    // cannot exceed 40 char.
-    const MAX_KEYSTROKE_PS: u64 = 20;
+    // Assuming a put every 300ms, one delta score increase
+    // cannot exceed 15 char.
+    const MAX_KEYSTROKE_PS: u64 = 15;
     if (len < MAX_LEADERBOARD_SIZE) && (score - old_best_score) >= MAX_KEYSTROKE_PS {
         return Err(AppError::BadRequest);
     } else if len == MAX_LEADERBOARD_SIZE
